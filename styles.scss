@@ -1,0 +1,190 @@
+$color-primary-light: #e9e8e8;
+$color-primary: #e1d5c8;
+$color-primary-dark: #9b795b;
+$color-light: #fff;
+$color-dark: #59595a;
+
+$standard-padding: calc(2.5vw + 1rem);
+
+// A four column css-grid with 5vw padding on either side
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Barlow", "Trebuchet MS", sans-serif;
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+////////////////////////////////////
+//----------- utilities-----------//
+////////////////////////////////////
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+//----- fonts-families
+.font-regular {
+  font-family: "Barlow", sans-serif;
+}
+
+.font-accent {
+  font-family: "Tangerine", cursive;
+}
+
+//----- font-sizes
+.heading-primary {
+  font-size: calc(3rem + 1.75vw);
+}
+
+.text-regular {
+  font-size: 1.4rem;
+}
+
+//----- font-weights
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+
+//----- background-colors
+.bg-primary-light {
+  background-color: $color-primary-light;
+}
+
+.bg-primary {
+  background-color: $color-primary;
+}
+
+.bg-primary-dark {
+  background-color: $color-primary-dark;
+}
+
+//----- colors
+.c-primary-dark {
+  color: $color-primary-dark !important;
+}
+
+//----- buttons
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: calc(0.5rem + 0.5vw);
+}
+
+.btn,
+.btn:visited,
+.btn:link {
+  padding: calc(0.15rem + 0.5vw) calc(1rem + 0.5vw);
+  border-radius: 5rem;
+  display: inline-block;
+  box-shadow: 0 0.1rem 0.25rem lighten($color-dark, 0.25);
+
+  &:hover {
+    box-shadow: 0 0.25rem 0.25rem lighten($color-dark, 0.25);
+  }
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-light {
+  background-color: $color-light;
+  color: $color-primary-dark;
+}
+
+.btn-primary-dark {
+  background-color: $color-primary-dark;
+  color: $color-light;
+}
+
+////////////////////////////////////
+//------   custom styles   -------//
+////////////////////////////////////
+.container {
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem $color-dark;
+  margin: 2.5vw 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-primary-light;
+  padding: $standard-padding;
+
+  border-radius: 1rem 1rem 0 0;
+
+  &__logo {
+    height: calc(1.5rem + 1vw);
+  }
+}
+
+.hero {
+  color: $color-primary-dark;
+  width: 40vmin;
+  margin: 0 auto;
+  text-align: center;
+  padding: calc($standard-padding + 5vw) 0;
+
+  &__desc {
+    font-size: 1.25rem;
+
+    &--title {
+      margin-bottom: calc(0.5rem + 0.5vw);
+    }
+    &--tagline {
+      margin-top: calc(-1.25rem);
+      margin-bottom: calc(1rem + 0.75vw);
+    }
+  }
+}
+
+// media-queries
+@media screen and (max-width: 1200px) {
+  .container {
+    margin: 2.5vw 5vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    width: 70vmin;
+  }
+  .btn-group {
+    flex-direction: column;
+    width: 15vmin;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .btn-group {
+    display: none;
+  }
+}

@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Barlow", "Trebuchet MS", sans-serif;
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.font-regular {
+  font-family: "Barlow", sans-serif;
+}
+
+.font-accent {
+  font-family: "Tangerine", cursive;
+}
+
+.heading-primary {
+  font-size: calc(3rem + 1.75vw);
+}
+
+.text-regular {
+  font-size: 1.4rem;
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+
+.bg-primary-light {
+  background-color: #e9e8e8;
+}
+
+.bg-primary {
+  background-color: #e1d5c8;
+}
+
+.bg-primary-dark {
+  background-color: #9b795b;
+}
+
+.c-primary-dark {
+  color: #9b795b !important;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: calc(0.5rem + 0.5vw);
+}
+
+.btn,
+.btn:visited,
+.btn:link {
+  padding: calc(0.15rem + 0.5vw) calc(1rem + 0.5vw);
+  border-radius: 5rem;
+  display: inline-block;
+  box-shadow: 0 0.1rem 0.25rem #5a5a5b;
+}
+.btn:hover,
+.btn:visited:hover,
+.btn:link:hover {
+  box-shadow: 0 0.25rem 0.25rem #5a5a5b;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-light {
+  background-color: #fff;
+  color: #9b795b;
+}
+
+.btn-primary-dark {
+  background-color: #9b795b;
+  color: #fff;
+}
+
+.container {
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem #59595a;
+  margin: 2.5vw 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e9e8e8;
+  padding: calc(2.5vw + 1rem);
+  border-radius: 1rem 1rem 0 0;
+}
+.header__logo {
+  height: calc(1.5rem + 1vw);
+}
+
+.hero {
+  color: #9b795b;
+  width: 40vmin;
+  margin: 0 auto;
+  text-align: center;
+  padding: calc(2.5vw + 1rem + 5vw) 0;
+}
+.hero__desc {
+  font-size: 1.25rem;
+}
+.hero__desc--title {
+  margin-bottom: calc(0.5rem + 0.5vw);
+}
+.hero__desc--tagline {
+  margin-top: -1.25rem;
+  margin-bottom: calc(1rem + 0.75vw);
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin: 2.5vw 5vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    width: 70vmin;
+  }
+  .btn-group {
+    flex-direction: column;
+    width: 15vmin;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 540px) {
+  .btn-group {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
