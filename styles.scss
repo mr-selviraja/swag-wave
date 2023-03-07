@@ -25,6 +25,7 @@ body {
   font-family: "Barlow", "Trebuchet MS", sans-serif;
   max-width: 114rem;
   margin: 0 auto;
+  background-color: #252525;
 }
 
 ////////////////////////////////////
@@ -129,6 +130,29 @@ ul {
 .btn-primary-dark {
   background-color: $color-primary-dark;
   color: $color-light;
+
+  &:hover {
+    background-color: lighten($color-primary-dark, 5%);
+  }
+}
+
+.btn-dark {
+  background-color: $color-dark;
+  color: $color-light;
+
+  &:hover {
+    background-color: lighten($color-dark, 10%);
+  }
+}
+
+.btn-dark-outline {
+  background-color: transparent !important;
+  color: $color-dark;
+  border: 1px solid $color-dark;
+
+  &:hover {
+    background-color: darken($color-light, 10%) !important;
+  }
 }
 
 ////////////////////////////////////
@@ -136,7 +160,7 @@ ul {
 ////////////////////////////////////
 .container {
   border-radius: 1rem;
-  box-shadow: 0 0 0.5rem $color-dark;
+  box-shadow: 0 0 0.5rem #eee;
   margin: 2.5vw 0;
 }
 
@@ -162,7 +186,7 @@ ul {
   width: 40vmin;
   margin: 0 auto;
   text-align: center;
-  padding: calc($standard-padding + 5vw) 0;
+  padding: calc($standard-padding + 5rem + 5vw) 0;
 
   &__desc {
     font-size: 1.25rem;
@@ -177,11 +201,13 @@ ul {
   }
 }
 
+// products styles
 .products {
   display: flex;
   gap: calc(2.5rem + 1vw);
+  justify-content: space-between;
 
-  padding: $standard-padding calc($standard-padding + 1rem);
+  padding: $standard-padding calc($standard-padding + calc(7.5rem + 1.5vw));
 
   .product {
     display: flex;
@@ -189,7 +215,7 @@ ul {
     align-items: center;
 
     &__img {
-      width: 60%;
+      height: calc(7rem + 3.5vw);
       margin-bottom: calc(1rem + 1vw);
     }
 
@@ -197,15 +223,106 @@ ul {
       transition: all 0.3s ease-in;
 
       &:hover {
-        transform: scale(1.05);
+        transform: translateY(-0.5rem);
       }
     }
   }
 }
 
 // collections styles
-.collections {
+.collections-container {
   background-color: $color-primary;
+  padding: calc(2.5rem + $standard-padding) $standard-padding;
+
+  .collection {
+    margin-bottom: calc(2.5rem + 2.5vw);
+
+    h2 {
+      font-size: calc(1.5rem + 1.25vw);
+      margin-bottom: calc(2.5rem + 0.5vw);
+      color: $color-dark;
+    }
+  }
+
+  .collection-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    grid-gap: 2.5rem;
+
+    .collection-card {
+      background-color: $color-light;
+      color: $color-primary-dark;
+      padding: calc(1.5rem + 1vw) calc(0.75rem + 1vw) calc(0.5rem + 1vw);
+      border-radius: 1rem;
+      box-shadow: 0 0 0.5rem lighten($color-dark, 20%);
+      min-width: 22rem;
+
+      transition: all 0.3s ease-in;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      &:hover {
+        box-shadow: 0 0.25rem 0.75rem lighten($color-dark, 10%);
+        transform: scale(1.05);
+      }
+
+      & img {
+        width: 30%;
+        min-width: 12.5rem;
+        margin-bottom: 1.5rem;
+
+        align-self: center;
+      }
+
+      &__title {
+        padding-bottom: 1rem;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid $color-primary-dark;
+        line-height: 1.4;
+        font-weight: 700;
+      }
+
+      &__purchase {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &--price {
+          font-size: 2.5rem;
+        }
+
+        &--rating {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// footer styles
+.footer {
+  padding: $standard-padding;
+  color: $color-primary-light;
+
+  display: flex;
+  justify-content: space-between;
+
+  & p {
+    font-size: 1.2rem;
+  }
+
+  & .social {
+    font-size: 1.5rem;
+
+    display: flex;
+    gap: calc(1rem + 1vw);
+
+    & > * {
+      cursor: pointer;
+    }
+  }
 }
 
 // media-queries
@@ -224,10 +341,26 @@ ul {
     width: 15vmin;
     margin: 0 auto;
   }
+
+  .products {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 540px) {
   .btn-group {
     display: none;
   }
+
+  .footer {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
 }
+
+// @media screen and (max-width: 1210px) {
+//   .collection-card {
+//     width: 50%;
+//   }
+// }

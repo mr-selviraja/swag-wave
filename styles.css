@@ -15,6 +15,7 @@ body {
   font-family: "Barlow", "Trebuchet MS", sans-serif;
   max-width: 114rem;
   margin: 0 auto;
+  background-color: #252525;
 }
 
 a {
@@ -110,10 +111,30 @@ ul {
   background-color: #9b795b;
   color: #fff;
 }
+.btn-primary-dark:hover {
+  background-color: #a78669;
+}
+
+.btn-dark {
+  background-color: #59595a;
+  color: #fff;
+}
+.btn-dark:hover {
+  background-color: #727274;
+}
+
+.btn-dark-outline {
+  background-color: transparent !important;
+  color: #59595a;
+  border: 1px solid #59595a;
+}
+.btn-dark-outline:hover {
+  background-color: #e6e6e6 !important;
+}
 
 .container {
   border-radius: 1rem;
-  box-shadow: 0 0 0.5rem #59595a;
+  box-shadow: 0 0 0.5rem #eee;
   margin: 2.5vw 0;
 }
 
@@ -134,7 +155,7 @@ ul {
   width: 40vmin;
   margin: 0 auto;
   text-align: center;
-  padding: calc(2.5vw + 1rem + 5vw) 0;
+  padding: calc(2.5vw + 1rem + 5rem + 5vw) 0;
 }
 .hero__desc {
   font-size: 1.25rem;
@@ -150,7 +171,8 @@ ul {
 .products {
   display: flex;
   gap: calc(2.5rem + 1vw);
-  padding: calc(2.5vw + 1rem) calc(2.5vw + 1rem + 1rem);
+  justify-content: space-between;
+  padding: calc(2.5vw + 1rem) calc(2.5vw + 1rem + 7.5rem + 1.5vw);
 }
 .products .product {
   display: flex;
@@ -158,18 +180,90 @@ ul {
   align-items: center;
 }
 .products .product__img {
-  width: 60%;
+  height: calc(7rem + 3.5vw);
   margin-bottom: calc(1rem + 1vw);
 }
 .products .product__link {
   transition: all 0.3s ease-in;
 }
 .products .product__link:hover {
-  transform: scale(1.05);
+  transform: translateY(-0.5rem);
 }
 
-.collections {
+.collections-container {
   background-color: #e1d5c8;
+  padding: calc(2.5rem + 2.5vw + 1rem) calc(2.5vw + 1rem);
+}
+.collections-container .collection {
+  margin-bottom: calc(2.5rem + 2.5vw);
+}
+.collections-container .collection h2 {
+  font-size: calc(1.5rem + 1.25vw);
+  margin-bottom: calc(2.5rem + 0.5vw);
+  color: #59595a;
+}
+.collections-container .collection-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  grid-gap: 2.5rem;
+}
+.collections-container .collection-cards .collection-card {
+  background-color: #fff;
+  color: #9b795b;
+  padding: calc(1.5rem + 1vw) calc(0.75rem + 1vw) calc(0.5rem + 1vw);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem #8c8c8d;
+  min-width: 22rem;
+  transition: all 0.3s ease-in;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.collections-container .collection-cards .collection-card:hover {
+  box-shadow: 0 0.25rem 0.75rem #727274;
+  transform: scale(1.05);
+}
+.collections-container .collection-cards .collection-card img {
+  width: 30%;
+  min-width: 12.5rem;
+  margin-bottom: 1.5rem;
+  align-self: center;
+}
+.collections-container .collection-cards .collection-card__title {
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #9b795b;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.collections-container .collection-cards .collection-card__purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.collections-container .collection-cards .collection-card__purchase--price {
+  font-size: 2.5rem;
+}
+.collections-container .collection-cards .collection-card__purchase--rating {
+  font-size: 1rem;
+}
+
+.footer {
+  padding: calc(2.5vw + 1rem);
+  color: #e9e8e8;
+  display: flex;
+  justify-content: space-between;
+}
+.footer p {
+  font-size: 1.2rem;
+}
+.footer .social {
+  font-size: 1.5rem;
+  display: flex;
+  gap: calc(1rem + 1vw);
+}
+.footer .social > * {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
@@ -186,10 +280,18 @@ ul {
     width: 15vmin;
     margin: 0 auto;
   }
+  .products {
+    display: none;
+  }
 }
 @media screen and (max-width: 540px) {
   .btn-group {
     display: none;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
   }
 }
 
